@@ -41,3 +41,4 @@ jspm_packages
 css/reveal.min.css
 js/reveal.min.js
 html/**
+index.html
