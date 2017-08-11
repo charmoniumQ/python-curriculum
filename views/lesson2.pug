@@ -1,24 +1,175 @@
 section
+  h3 Lesson 2
   h1 Save it for Later
-  h2.fragment Reusing Code
-  h2 Lesson 2
-  aside.notes Introduce the idea of script files, and how a student
-              can write resuable programs and save them for later.
+  h2 Reusing Code
               
 // would like to have code in headings, but it only works in paragraphs
+
 section
-  h2 Using print
-  aside.notes
+  section
+    h2 Script Files
     
-    p A saved program can be more useful if it gives some output.
+    p Script files can be used to save python code
+    p You can reuse saved programs
+    p You can use #[code print] to give output and make programs more useful
+    
+    aside.notes
+      p Launch into sales tax program as an example of a reusable program that provides output.
+      p Introduce the ability to print multiple things if you have enough time.
       
-    p Example:
-      
+  section
+    h3 Example: Sales Tax
+
     pre
-      code.
+      code.hljs.
         >>> tax_rate = 8.25
         >>> price = 25
         >>> sales_tax = price * tax_rate / 100
         >>> print(sales_tax)
+    
+    p.fragment ...and try...
+    
+    pre.fragment
+      code.hljs.
+        >>> total_price = sales_tax + price
+        >>> print(sales_tax, total_price)
 
-    p 
+section
+  section
+    h2 Strings
+    
+    p Anything withing double-quotes or single-quotes
+    p Just text (like a message) &mdash; cannot be code
+    p.fragment You can add strings together or multiply them with integers
+    
+    aside.notes
+      p Launch into Hello World example after talking about how strings cannot be code
+      p Go into string concatenation/multiplication example and explicitly introduce empty string
+  
+  section
+    h3 Example: Hello World
+    
+    pre
+      code.hljs.
+        >>> print("Hello world!")
+        
+    aside.notes
+      p You can mention something about "Hello world!" being a rite of passage if you feel like it
+      
+  section
+    h3 Example: String Operations
+    
+    pre
+      code.hljs.
+        >>> empty_string = ""
+        >>> print(empty_string)
+    pre.fragment
+      code.hljs.
+        >>> a = "a" + "b"
+        >>> print(a)
+    pre.fragment
+      code.hljs.
+        >>> b = "c" * 3
+        >>> print(b)
+    pre.fragment
+      code.hljs.
+        >>> str = empty_string
+        >>> str = str + a
+        >>> print(str)
+    pre.fragment
+      code.hljs.
+        >>> str += b
+        >>> print(str)
+        
+  section
+    h3 Example: Better Output
+    
+    pre
+      code.hljs.
+        >>> tax_rate = 8.25
+        >>> price = 25
+        >>> sales_tax = price * tax_rate / 100
+        >>> print("Sales Tax:", sales_tax)
+        >>> total_price = sales_tax + price
+        >>> print("Total Price:", total_price)
+        
+section
+  section
+    h2 Comments
+    
+    p Comments cannot be code either
+    p &nbsp;
+    p.fragment Purpose
+    p
+      ul
+        li.fragment Comments are for the reader
+        li.fragment Comments can make code not run
+            
+    aside.notes
+      p Introduce volume of different solids example, and then talk about the following sales tax with print in a script if time allows
+      
+      pre
+        code.hljs.
+          tax_rate = 8.25
+          price = 25
+          sales_tax = price * tax_rate / 100
+          print("Sales Tax:", sales_tax)
+          total_price = sales_tax + price
+          print("Total Price:", total_price)
+          
+  section
+    h3 Example: Using Comments
+    
+    p Try typing this into a script file and uncomment the code and run it
+    
+    pre
+      code.hljs.
+        pi = 3.14159265
+        r = 32.1
+        print(4/3 * pi * r**3)      # sphere
+        #print(pi * r**2 * h)       # cylinder
+        #print(pi * r**2 * h * 1/3) # cone
+
+section
+  section
+    h2 BUGS?!
+    
+    p You'll make lots of errors while programming
+    p.fragment But how do you deal with them?
+    p.fragment Python tells you the line number of an errors
+    p.fragment Two types of errors: before-errors and during-errors
+    
+  section
+    h3 Before-Errors
+    
+    p Before-errors happen before a program runs
+    p Example: NameError
+    pre
+      code.hljs.
+        print("hello")
+        print(a) # You haven't told Python what a is!
+        a = 3
+        
+    aside.notes 
+      p Before errors are akin to syntax errors
+      p Might be helpful to mention that Python will complain about before-errors before you run the program
+    
+  section
+    h3 During-Errors
+    
+    p During-errors happen while a program is running
+    p Example: ZeroDivisionError
+    pre
+      code.hljs.
+        print("hello")
+        a = 3
+        b = 0
+        print(a/b) # Python will try to divide by zero and fail!
+        
+    aside.notes 
+      p During errors are akin to logical errors
+      p Might be helpful to mention that Python will complain about during-errors after you run the program
+      
+section
+  h1 The End
+  p Remember to reuse, reduce, and recycle!
