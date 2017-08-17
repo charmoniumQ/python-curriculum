@@ -3,12 +3,14 @@ section
   h2.fragment  What do they even do?
 
 section
-  aside.notes Example:
+  section
+    h2 Example time!
+  section
+    p Example:
     pre
       code.hljs.
         >>> def greet():
         ...   print("hello")
-  h2 Example time!
 
 section
   h2 Parts of a Function
@@ -17,28 +19,79 @@ section
   p.fragment function name
   p.fragment #[code :]
   p.fragment Importance of indentation
-  p.fragment
-    pre
-      code.hljs.
-        >>> def greet():
-        ...   print("hello")
+  pre.fragment
+    code.hljs.
+      >>> def greet():
+      ...   print("hello")
 
 section
-  aside.notes Example:
+  section
+    h2 Functions with INPUT!?!
+    p.fragment Example time again!
+  section
+    p Example:
     pre
       code.hljs.
         >>> def greet(x):
         ...   print("hello")
         ...   print(x)
-  h2 Functions with INPUT!?!
-  p.fragment Example time again!
 
 section
-  h2 Functions can have TWO INPuTS?!?!?!
-  p.fragment More example times ahead
-  aside.notes Example:
+  section
+    h2 Functions can have TWO INPuTS?!?!?!
+    p.fragment More example times ahead
+  section
+    p Example:
     pre
       code.hljs.
         >>> def greet(x, y):
         ...   print("Hello")
-        ...   print(X + y)
+        ...   print(x + y)
+
+section
+  section
+    h2 Now for the crazy stuff!
+    p Let's revisit discounts now that we know about functions and print.
+  section
+    p Example:
+    pre
+      code.hljs.
+        def discount(price):
+           a = (price * 40) / 100
+           print(price - a)
+
+section
+  section
+    h2 Reusing Functions
+    p.fragment What if one function requires the result from another function?
+    p.fragment This is when a return statement necessary.
+    p.fragment Let's see an example of a return in action.
+  section
+    p Example:
+    pre
+      code.hljs.
+        def discount(price):
+           a = (price * 40) / 100
+           return a
+        def sale(price):
+           b = discount(price)
+           return price - b
+
+section
+  section
+    p Because we know y'all love examples, here's another using returns.
+  section
+    p Example:
+    pre
+      code.hljs.
+      pi = 3.14159265
+      def vol_sphere(r):
+        return 4/3 * pi * r**3
+      def vol_cylinder(r, h):
+        return pi * r**2 * h
+
+section
+  p EasyCrypt Example
+
+section
+  p Now y'all know all about function! Go forth and conquer.
