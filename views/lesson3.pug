@@ -84,14 +84,58 @@ section
     p Example:
     pre
       code.hljs.
-      pi = 3.14159265
-      def vol_sphere(r):
-        return 4/3 * pi * r**3
-      def vol_cylinder(r, h):
-        return pi * r**2 * h
+        pi = 3.14159265
+        def vol_sphere(r):
+            return 4/3 * pi * r**3
+        def vol_cylinder(r, h):
+            return pi * r**2 * h
 
 section
-  p EasyCrypt Example
+  h2 EasyCrypt
+
+  section
+    pre
+      code.hljs.
+        from EasyCrypt import encrypt1
+        # remember the quotation marks around the message
+        # because it is a string
+        message = "hey wanna meet up on saturday"
+        print(encrypt1(message))
+
+    pre.fragment
+      code.
+        itn vqffq dttz xh gf lqzxkrqn
+
+  section
+    pre
+      code.hljs.
+        from EasyCrypt import decrypt1
+        # remember the quotation marks around the message
+        # because it is a string
+        message = "itn  vqffq dttz xh gf lqzxkrqn"
+        print(decrypt1(message))
+
+    pre.fragment
+      code.
+        hey wanna meet up on saturday
 
 section
-  p Now y'all know all about function! Go forth and conquer.
+
+  p They can't read your message unless they have the program.
+  p.fragment But everybody reading this already has the program
+  p.fragment So write a new program?
+
+section
+  h2 Passwords
+  p Instead of keeping the cipher secret, keep password secret
+  p.fragment If someone finds it out, just change it
+  p.fragment Advantage: Publish programs online
+  p.fragment.
+    Advantage: In wars, countries steal each-others computers and have the
+    program, but not the password.
+
+section
+  p
+    img(src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg" height="400px")
+  p Alessandro Nassiri - <a href="https://en.wikipedia.org/wiki/en:Museo_della_Scienza_e_della_Tecnologia_%22Leonardo_da_Vinci%22">Museo della Scienza e della Tecnologia "Leonardo da Vinci"</href>
+  p <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
