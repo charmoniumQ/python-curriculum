@@ -137,4 +137,83 @@ section
     pre.fragment
       code.hljs.
         'd'
+
+section
+  section
+    h2 List Operations
+    
+    p Get list lengths with #[code len()]
+    p Add stuff to lists using #[code append()]
+    p Find items in lists using #[code index()]
+    p Concatenate lists (add one to the end of another)
+    p Like #[code list1 + list2]
+    
+    aside.notes The slides only have a small amount of examples, maybe experiment with different operations. Maybe ask kids for more fruits and vegetables.
+    
+  section
+    h3 Examples
+    
+    pre
+      code.hljs.
+        >>> fruits = ['apple', 'banana', 'orange']
+        >>> len(fruits)
+    pre.fragment
+      code.hljs.
+        3
+    pre
+      code.hljs.
+        >>> fruits.append('kiwi')
+        >>> fruits
+    pre.fragment
+      code.hljs.
+        ['apple, 'banana', 'orange', 'kiwi']
+    pre
+      code.hljs.
+        >>> fruits.index('orange')
+    pre.fragment
+      code.hljs.
+        2
+    pre
+      code.hljs.
+        >>> vegetables = ['carrot', 'asparagus']
+        >>> foods = fruits + vegetables
+        >>> foods
+    pre.fragment
+      code.hljs.
+        ['apple', 'banana', 'orange', 'kiwi', 'carrot', 'asparagus']
+        
+section
+  section
+    h2 Slices
+    
+    p You can take slices out of your list!
+    p Just give a start index and a stop index
+    p In the form list1[start:stop]
+    p And you'll get everything in the list from start to right before stop!
+    p If you don't give a stop index, it'll just give you everything til the end
+    p If you don't give a start index, it'll just give you everything from the start
+    
+  section
+    h3 Grab a few slices
+    
+    pre
+      code.hljs.
+        >>> colors = ['r', 'o', 'y', 'g', 'b', 'i', 'v']
+        >>> colors[1:4]
+    pre.fragment
+      code.hljs.
+        ['o', 'y', 'g']
+    pre
+      code.hljs.
+        >>> colors[3:]
+    pre.fragment
+      code.hljs.
+        ['g', 'b', 'i', 'v']
+    pre
+      code.hljs.
+        >>> colors[:3]
+    pre.fragment
+      code.hljs.
+        ['r', 'o', 'y']
+    
     
