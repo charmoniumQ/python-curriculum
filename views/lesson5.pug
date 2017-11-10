@@ -1,0 +1,59 @@
+section
+  h1 Loopy loops
+
+section
+  h1 List review
+  pre.fragment
+    code.hljs.
+      >>> foods = ['pizza', 'ice cream']
+  p.fragment get the zeroth (aka the first) item
+  pre.fragment
+    code.hljs.
+      >>> mylist[0]
+      'pizza'
+  p.fragment get the first (aka second)
+  pre.fragment
+    code.hljs.
+      >>> mylist[1]
+      'ice cream'
+
+section
+  h1 For-each loops
+  pre
+    code for thing in list:
+  p It says "for each thing in the list"
+  pre.fragment
+    code for
+  pre.fragment
+    code thing (a new variable name)
+  pre.fragment
+    code in
+  pre.fragment
+    code list (or any list)
+  pre.fragment
+    code :
+  p.fragment indented code
+
+section
+  h1 For-each loop example
+  pre.fragment
+    code.hljs.
+      >>> menu = ['pizza', 'ice cream', 'candy']
+  pre.fragment
+    code.hljs.
+      >>> for food in menu:
+      ...     print(food)
+
+section
+  p.fragment For-each loops don't just work on lists
+  p.fragment It works on strings, lists, and other objects
+  pre.fragment
+    code.hljs.
+      >>> for letter in 'word':
+      ...     print(letter)
+      w
+      o
+      r
+      d
+
+section
