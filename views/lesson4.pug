@@ -1,6 +1,141 @@
 section
-    h1 Strings
+  h3 Lesson 4
+  h1 Do Even More With Python!
+  h2 Input and Lists and Whatnot
+  
+section
+  section
+    h2 Strings and Numbers
+    
+    p Python offers functions to convert numbers and strings
+    p #[code int()] and #[code float()] convert strings to numbers
+    p #[code str()] converts numbers to strings
+    
+    aside.notes Do quick examples for conversions, don't spend too much time on them.
+    
+  section
+    h3 Conversion Example
+    
+    pre
+      code.hljs.
+        >>> num1 = 19
+        >>> str1 = str(num1)
+        >>> str2 = "47"
+        >>> num2 = int(str1)
+        >>> num1 + num2
+    pre.fragment
+      code.hljs.
+        66
+    pre
+      code.hljs.
+        >>> str3 = str1 + str2
+        >>> str3
+    pre.fragment
+      code.hljs.
+        '1947'
+    pre
+      code.hljs.
+        >>> num3 = float(str3)
+        >>> num1 + num3
+    pre.fragment
+      code.hljs.
+        1966.0
 
 section
-    h2 Convert strings to int
+  section
+    h2 Getting Input
+    
+    p You can use the #[code input()] function to get input from the user
+    p #[code input()] returns the next line of input as a string
+    p Use #[code int()] or #[code float()] to convert string input to numbers
+    
+  section
+    h3 Input Example
+    
+    pre
+      code.hljs.
+        >>> str1 = input()
+        This is a line!
+        >>> str1
+    pre.fragment
+      code.hljs.
+        'This is a line!'
+    pre
+      code.hljs.
+        >>> str2 = input()
+        56
+        >>> str3 = input()
+        12.75
+        >>> num1 = int(str2)
+        >>> num2 = int(str3)
+        >>> num1 + num2
+    pre.fragment
+      code.hljs.
+        68.75
+        
+section
+  h1 Lists!!!!!!
+  h3 List of reasons to love lists
+  
+  ol
+    li Lists are great
+    li Lists can store multiple things
+    li Lists can store anything: even lists!
 
+section
+  section
+    h2 Constructing Lists
+    
+    p It's pretty simple
+    p Just get square brackets []
+    p And put whatever you want in between
+    p (separated by commas)
+  
+    aside.notes Show the students the list examples in the down slide, and then maybe do more examples
+    
+  section
+    h3 Different Lists!
+    
+    pre
+      code.hljs.
+        numbers = [1, 2, 3, 4]
+        mixed_numbers = [5, 6.5, 1.23, 6.5]
+        fruits = ['apples', 'oranges', 'blueberries']
+        empty_list = []
+        lists = [numbers, mixed_numbers, fruits, empty_list]
+        lots_of_stuff = [7, [1, 'hello'], 3.21, '12', 7, lists]
+        
+section
+  section
+    h2 Indexing
+    
+    p Indexes assign a number to each element of list
+    p Count forwards: 0, 1, 2, 3,...
+    p lst[1] accesses second element of list
+    p Count backwards: -1, -2, -3,...
+    p lst[-3] accesses third last element of list
+    
+  section
+    h3 Indexing Examples
+
+    pre
+      code.hljs.
+        >>> letters = ['a', 'b', 'c', 'd', 'e']
+        >>> letters[0]
+    pre.fragment
+      code.hljs.
+        'a'
+    pre
+      code.hljs.
+        >>> letters[2]
+    pre.fragment
+      code.hljs.
+        'c'
+    pre
+      code.hljs.
+        >>> letters[-2]
+    pre.fragment
+      code.hljs.
+        'd'
+    
+>>>>>>> 6776d484f33baed344cc04a35c0bd2d542041a44
