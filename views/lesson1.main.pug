@@ -1,41 +1,188 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+extends revealjs
 
-    title Py-what?
-
-    link(rel='stylesheet', href='css/reveal.css')
-    link(rel='stylesheet', href='css/theme/black.css')
-
-    // Theme used for syntax highlighting of code
-    link(rel='stylesheet', href='lib/css/zenburn.css')
-
-    // Printing and PDF exports
-    script.
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-  body
-    .reveal
-      .slides
-        include lesson1.pug
-
-    script(src="lib/js/head.min.js")
-    script(src="js/reveal.js")
-    script.
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-      });
+block slides
+  section
+    h1 Learn Python!
+    h2.fragment and have fun doing it
+  
+  section
+    h2 Programming languages!
+  
+    p.fragment Have you heard of any programming languages before?
+    p.fragment Programs are sequences of those instructions (like a cookbook)
+    p.fragment Programming language: all of the things you could say that the computer understands
+    aside.notes
+      p.rational  especially in automata theory, a language is the set of all valid sentences.
+  
+  section
+    p Python is my favorite programming language.*
+    p.fragment (*) I have many 'favorite' programming languages.
+  
+    aside.notes
+      p.instructor-do
+        | about 10 minutes (?) for this.
+        | Probably want to have instructors walk around and asist
+    aside.notes
+      p.rationale
+        | We opted to have the students run Python locally so that they would have
+        | the knowledge to experiment with Python at home.
+      p.rationale
+        | Jupyter Notebook provides a potential web-based alternative that does not involve downloading software.
+  
+    p.fragment <a href='https://www.python.org/downloads/'>https://www.python.org/downloads/</a>
+    p.fragment "Windows x86-64 executable installer" 3.6.2
+  
+  section
+    h2 Python can be a calculator
+  
+    p.fragment Type in
+    pre.fragment
+      code.
+        >>> 3 + 4
+        7
+    p.fragment Exponents use <code>**</code> instead of <code>^</code>
+    pre.fragment
+      code.
+        >>> 19**2
+        361
+  
+  section
+    pre.fragment
+      code.
+        >>> 6 * 7 - 5
+        37
+    p.fragment Notice that it multiplied before subtracting
+    p.fragment How would you get it to subtract 5 from 7 before multiplying? "6 times the difference between 7 and 5?"
+    p.fragment Parentheses!
+    pre.fragment
+      code.
+        >>> 61 * (722 - 313)
+        24949
+  
+  section
+    h2 Divisive division
+  
+    p.fragment What is 14 divided by 3?
+    ul
+      li.fragment 4 and 2/3
+      li.fragment 4 remainder 2
+      li.fragment 4.6-repeating
+      li.fragment the fraction 14 / 3
+    p.fragment Which would be the most useful?
+    p.fragment The fraction 14/3 is just a restatement of the question.
+    p.fragment 4 remainder 2 and 4+2/3 are really saying the same thing.
+  
+  section
+    p Usually we want decimals.
+    pre.fragment
+      code.
+        >>> 14 / 3
+        4.666666666666667
+    p.fragment The computer has limited prevision; The last 6 rounds to a 7.
+    p.fragment (That is just the default. There are ways to get arbitrary precision.)
+    p.fragment But that 4 remainder 2 is still there!
+    pre.fragment
+      code.
+        >>> 14 // 3
+        4
+        >>> 14 % 3
+        2
+  
+  section
+    h2 Variables
+  
+    p.fragment Every time I say "a" you say "3"
+    p.fragment "a" is the <em>name</em> of the variable
+    p.fragment 3 is the <em>value</em> of the variable
+    pre.fragment
+      code.
+        >>> a = 3
+    pre.fragment
+      code.
+        >>> a * 10
+        30
+    pre.fragment
+      code.
+        >>> 4 + 10 * a
+        34
+    pre.fragment
+      code.
+        >>> hello = 3
+        >>> 9 * hello
+        27
+  
+  section
+  
+    p.fragment Variable names can have composed of underscores, upper-, and lower-case letters
+    p.fragment No spaces
+    p.fragment I said none!
+  
+  section
+    pre.fragment
+      code.
+        >>> a = 3
+    p.fragment In math class, if a = 3, does 3 = a?
+    pre.fragment
+      code.
+        >>> 3 = a
+    p.fragment Python is not math class.
+    pre.fragment
+      code.
+          File "&lt;stdin&gt;", line 1
+        SyntaxError: can't assign to literal
+  
+  section
+    section
+      h2 Your turn!
+  
+      p.fragment Go through <a href="http://www.murderousmaths.co.uk/games/choc/agebychoc.htm">Age by chocolate</a> using Python.
+  
+      p.fragment Tip: <code>_</code> is a special variable that refers to the last result
+      pre.fragment
+        code.
+          >>> 8 + 1
+          9
+          >>> _ * 2
+          18
+  
+    section
+      pre.fragment
+        code.
+          >>> per_week = 5
+      pre.fragment
+        code.
+          >>> per_week * 2
+          10
+      pre.fragment
+        code.
+          >>> _ + 5
+          15
+      pre.fragment
+        code.
+          >>> _ * 50
+          750
+      pre.fragment
+        code.
+          >>> _ + 1766
+          2516
+      pre.fragment
+        code.
+          >>> _ - 1996
+          520
+      p.fragment Yeah. I am 20, and I want chocolate 5 times per week
+  
+    section
+      p Can I combine steps? Yes
+      pre.fragment
+        code.
+          >>> per_week = 5
+          >>> birth_year = 1996
+          >>> (per_week * 2 + 5) * 50 + 1776 - birth_year
+          520
+  
+  section
+    p.takeaway Computers are good at boring math quickly
+    p.takeaway Humans are better at loosely-defined tasks
+  
+  //- classes I have to define in CSS
+  //- .takeaway .instructor-do .rational

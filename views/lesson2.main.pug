@@ -1,41 +1,166 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+extends revealjs
 
-    title Py-what?
-
-    link(rel='stylesheet', href='css/reveal.css')
-    link(rel='stylesheet', href='css/theme/black.css')
-
-    // Theme used for syntax highlighting of code
-    link(rel='stylesheet', href='lib/css/zenburn.css')
-
-    // Printing and PDF exports
-    script.
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-  body
-    .reveal
-      .slides
-        include lesson2.pug
-
-    script(src="lib/js/head.min.js")
-    script(src="js/reveal.js")
-    script.
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-      });
+block slides
+  section
+    h1 Reusing Code
+                
+  //- would like to have code in headings, but it only works in paragraphs
+  
+  section
+    section
+      h2 Script Files
+  
+      p Script files used to save code
+      p Script files are reusable
+      p Use #[code print] to give output and make programs more useful
+      
+      aside.notes
+        p Launch into sales tax program as an example of a reusable program that provides output.
+        p Introduce the ability to print multiple things in one line if you have enough time.
+        
+    section
+      h3 Example: Computing discounts
+  
+      pre
+        code.hljs.
+          price = 25
+          discount = 30
+          savings = price * discount / 100
+          print(savings)
+      
+      p.fragment &hellip; and try &hellip;
+      
+      pre.fragment
+        code.hljs.
+          new_price = price - savings
+          print(savings, new_price)
+  
+  section
+    section
+      h2 Strings
+      
+      p Anything within double-quotes or single-quotes
+      p Just text (like a message) &mdash; cannot be code
+      
+      aside.notes
+        p Launch into Hello World example after talking about how strings cannot be code
+        p Go into string concatenation/multiplication example and explicitly introduce empty string
+    
+    section
+      h3 Example: Hello World
+      
+      pre
+        code.hljs.
+          print("Hello world!")
+          
+      aside.notes
+        p You can mention something about "Hello world!" being a rite of passage if you feel like it
+        
+    section
+      h3 Example: String Operations
+      
+      pre
+        code.hljs.
+          empty_string = ""
+          print(empty_string)
+      pre.fragment
+        code.hljs.
+          a = "hello" + "world"
+          print(a)
+      pre.fragment
+        code.hljs.
+          b = "helllo " * 3
+          print(b)
+      pre.fragment
+        code.hljs.
+          str = empty_string
+          str = str + a
+          print(str)
+      pre.fragment
+        code.hljs.
+          str += b
+          print(str)
+          
+    section
+      h3 Example: Better Output
+      
+      pre
+        code.hljs.
+          price = 25
+          discount = 30
+          savings = price * discount / 100
+          print("You saved:", savings)
+          new_price = price - savings
+          print("Total Price:", new_price)
+          
+  section
+    section
+      h2 Comments
+      
+      p Comments cannot be code either
+      p &nbsp;
+      p.fragment Purpose
+      p
+        ul
+          li.fragment Comments are for the reader
+          li.fragment Comments can make code not run
+              
+      aside.notes
+        p Introduce volume of different solids example
+            
+    section
+      h3 Example: Using Comments
+      
+      p Try typing this into a script file and uncomment the code and run it
+      
+      pre
+        code.hljs.
+          pi = 3.14159265
+          r = 32.1
+          print(4/3 * pi * r**3)      # sphere
+          #print(pi * r**2 * h)       # cylinder
+          #print(pi * r**2 * h * 1/3) # cone
+  
+  section
+    section
+      h2 BUGS?!
+      
+      p If you are like me, you'll make lots of errors while programming
+      p.fragment But how do you deal with them?
+      p.fragment Python tells you the line number of an errors
+      p.fragment Two types of errors: before-errors and during-errors
+      
+    section
+      h3 Before-Errors
+      
+      p Before-errors happen before a program runs
+      p Example: NameError
+      pre
+        code.hljs.
+          print("hello")
+          print(a) # You haven't told Python what a is!
+          a = 3
+          
+      aside.notes 
+        p Might be helpful to mention that Python will complain about before-errors before you run the program
+        p so "hello" is never printed.
+  
+    section
+      h3 During-Errors
+      
+      p During-errors happen while a program is running
+      p Example: ZeroDivisionError
+      pre
+        code.hljs.
+          print("hello")
+          a = 3
+          b = 0
+          print(a/b) # Python will try to divide by zero and fail!
+          
+      aside.notes 
+        p Might be helpful to mention that Python will complain about during-errors after you run the program
+        p So "hello" is printed.
+        
+  section
+    h1 The End
+    p Remember to reuse, reduce, and recycle!

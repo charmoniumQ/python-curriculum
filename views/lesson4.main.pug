@@ -1,41 +1,220 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+extends revealjs
 
-    title Py-what?
-
-    link(rel='stylesheet', href='css/reveal.css')
-    link(rel='stylesheet', href='css/theme/black.css')
-
-    // Theme used for syntax highlighting of code
-    link(rel='stylesheet', href='lib/css/zenburn.css')
-
-    // Printing and PDF exports
-    script.
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-  body
-    .reveal
-      .slides
-        include lesson4.pug
-
-    script(src="lib/js/head.min.js")
-    script(src="js/reveal.js")
-    script.
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-      });
+block slides
+  section
+    h3 Lesson 4
+    h1 Do Even More With Python!
+    h2 Input and Lists and Whatnot
+    
+  section
+    section
+      h2 Strings and Numbers
+      
+      p Python offers functions to convert numbers and strings
+      p #[code int()] and #[code float()] convert strings to numbers
+      p #[code str()] converts numbers to strings
+      
+      aside.notes Do quick examples for conversions, don't spend too much time on them.
+      
+    section
+      h3 Conversion Example
+      
+      pre
+        code.hljs.
+          >>> num1 = 19
+          >>> str1 = str(num1)
+          >>> str2 = "47"
+          >>> num2 = int(str1)
+          >>> num1 + num2
+      pre.fragment
+        code.hljs.
+          66
+      pre
+        code.hljs.
+          >>> str3 = str1 + str2
+          >>> str3
+      pre.fragment
+        code.hljs.
+          '1947'
+      pre
+        code.hljs.
+          >>> num3 = float(str3)
+          >>> num1 + num3
+      pre.fragment
+        code.hljs.
+          1966.0
+  
+  section
+    section
+      h2 Getting Input
+      
+      p You can use the #[code input()] function to get input from the user
+      p #[code input()] returns the next line of input as a string
+      p Use #[code int()] or #[code float()] to convert string input to numbers
+      
+    section
+      h3 Input Example
+      
+      pre
+        code.hljs.
+          >>> str1 = input()
+          This is a line!
+          >>> str1
+      pre.fragment
+        code.hljs.
+          'This is a line!'
+      pre
+        code.hljs.
+          >>> str2 = input()
+          56
+          >>> str3 = input()
+          12.75
+          >>> num1 = int(str2)
+          >>> num2 = int(str3)
+          >>> num1 + num2
+      pre.fragment
+        code.hljs.
+          68.75
+          
+  section
+    h1 Lists!!!!!!
+    h3 List of reasons to love lists
+    
+    ol
+      li Lists are great
+      li Lists can store multiple things
+      li Lists can store anything: even lists!
+  
+  section
+    section
+      h2 Constructing Lists
+      
+      p It's pretty simple
+      p Just get square brackets []
+      p And put whatever you want in between
+      p (separated by commas)
+    
+      aside.notes Show the students the list examples in the down slide, and then maybe do more examples
+      
+    section
+      h3 Different Lists!
+      
+      pre
+        code.hljs.
+          numbers = [1, 2, 3, 4]
+          mixed_numbers = [5, 6.5, 1.23, 6.5]
+          fruits = ['apples', 'oranges', 'blueberries']
+          empty_list = []
+          lists = [numbers, mixed_numbers, fruits, empty_list]
+          lots_of_stuff = [7, [1, 'hello'], 3.21, '12', 7, lists]
+          
+  section
+    section
+      h2 Indexing
+      
+      p Indexes assign a number to each element of list
+      p Count forwards: 0, 1, 2, 3,...
+      p lst[1] accesses second element of list
+      p Count backwards: -1, -2, -3,...
+      p lst[-3] accesses third last element of list
+      
+    section
+      h3 Indexing Examples
+  
+      pre
+        code.hljs.
+          >>> letters = ['a', 'b', 'c', 'd', 'e']
+          >>> letters[0]
+      pre.fragment
+        code.hljs.
+          'a'
+      pre
+        code.hljs.
+          >>> letters[2]
+      pre.fragment
+        code.hljs.
+          'c'
+      pre
+        code.hljs.
+          >>> letters[-2]
+      pre.fragment
+        code.hljs.
+          'd'
+  
+  section
+    section
+      h2 List Operations
+      
+      p Get list lengths with #[code len()]
+      p Add stuff to lists using #[code append()]
+      p Find items in lists using #[code index()]
+      p Concatenate lists (add one to the end of another)
+      p Like #[code list1 + list2]
+      
+      aside.notes The slides only have a small amount of examples, maybe experiment with different operations. Maybe ask kids for more fruits and vegetables.
+      
+    section
+      h3 Examples
+      
+      pre
+        code.hljs.
+          >>> fruits = ['apple', 'banana', 'orange']
+          >>> len(fruits)
+      pre.fragment
+        code.hljs.
+          3
+      pre
+        code.hljs.
+          >>> fruits.append('kiwi')
+          >>> fruits
+      pre.fragment
+        code.hljs.
+          ['apple, 'banana', 'orange', 'kiwi']
+      pre
+        code.hljs.
+          >>> fruits.index('orange')
+      pre.fragment
+        code.hljs.
+          2
+      pre
+        code.hljs.
+          >>> vegetables = ['carrot', 'asparagus']
+          >>> foods = fruits + vegetables
+          >>> foods
+      pre.fragment
+        code.hljs.
+          ['apple', 'banana', 'orange', 'kiwi', 'carrot', 'asparagus']
+          
+  section
+    section
+      h2 Slices
+      
+      p You can take slices out of your list!
+      p Just give a start index and a stop index
+      p In the form list1[start:stop]
+      p And you'll get everything in the list from start to right before stop!
+      p If you don't give a stop index, it'll just give you everything til the end
+      p If you don't give a start index, it'll just give you everything from the start
+      
+    section
+      h3 Grab a few slices
+      
+      pre
+        code.hljs.
+          >>> colors = ['r', 'o', 'y', 'g', 'b', 'i', 'v']
+          >>> colors[1:4]
+      pre.fragment
+        code.hljs.
+          ['o', 'y', 'g']
+      pre
+        code.hljs.
+          >>> colors[3:]
+      pre.fragment
+        code.hljs.
+          ['g', 'b', 'i', 'v']
+      pre
+        code.hljs.
+          >>> colors[:3]
+      pre.fragment
+        code.hljs.
+          ['r', 'o', 'y']

@@ -1,41 +1,61 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+extends revealjs
 
-    title Py-what?
-
-    link(rel='stylesheet', href='css/reveal.css')
-    link(rel='stylesheet', href='css/theme/black.css')
-
-    // Theme used for syntax highlighting of code
-    link(rel='stylesheet', href='lib/css/zenburn.css')
-
-    // Printing and PDF exports
-    script.
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-  body
-    .reveal
-      .slides
-        include lesson6.pug
-
-    script(src="lib/js/head.min.js")
-    script(src="js/reveal.js")
-    script.
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-      });
+block slides
+  section
+    h1 Boolean logic!
+    p Finally figure out the answer to "To Be or Not To Be"
+  
+  section
+    h2 Boolean variable in Python
+    p.fragment The boolean variable can only be one of two values:
+    p.fragment True or False
+    p.fragment **#[strong REMEMBER!!!] Capitalization matters!**
+  
+  section
+    h1 = vs ==
+    pre.fragment
+      code.
+        >>> a = 3
+    pre.fragment
+      code.
+        >>> a == 3
+    pre.fragment
+      code.
+        True
+    pre.fragment
+      code.
+        >>> a == 4
+    pre.fragment
+      code.
+        False
+  
+  section
+    h1 The mystical and elusive if
+  
+  section
+    h1 if example
+    pre.fragment
+      code.hljs.
+        students = [‘jack’, ‘jill’, ‘joe’]
+        for student in students:
+          if student == ‘jack’:
+            print(‘jack is present’)
+  
+  section
+    h1 elses and elifs
+  
+  section
+    h1 if-elif-else example
+    pre.fragment
+      code.hljs.
+        def f(food):
+          if food == ‘pizza’:
+            print(“that’s my favorite food”)
+          elif food == ‘broccoli’:
+            print(“Gross!”)
+          else:
+            print(“what is “ + food + “?”)
+  
+  section
+    h1 super fun project time!
+    p.fragment Update the encrypt/ decrypt wrapper to have a menu based on user input.
