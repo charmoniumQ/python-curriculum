@@ -1,4 +1,8 @@
 /* global module:false */
+const util = require('util');
+const glob = require("glob");
+const path = require("path");
+
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
 	var root = grunt.option('root') || '.';
@@ -21,9 +25,10 @@ module.exports = function(grunt) {
 
 		pug: {
 			compile: {
-				files: {
-					'index.html': [ 'views/index.pug' ]
-				}
+				files: glob.sync(`${root}/views/*.main.pug`).map(filename => ({
+					src: filename,
+					dest: path.basename(filename, '.main.pug') + '.html',
+				}))
 			}
 		},
 
@@ -114,7 +119,15 @@ module.exports = function(grunt) {
 			js: ['js/reveal.js', 'lib/js/*.js', 'plugin/**/*.js'],
 			node: ['.'],
 			options: {}
-		}
+		},
+
+		copy: {
+			build: {
+				files: [
+					{dest: 'build/', src: ['./js/**', './css/**', './html/**'], expand: true},
+				],
+			},
+		},
 
 	});
 
@@ -130,6 +143,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-zip' );
 	grunt.loadNpmTasks( 'grunt-retire' );
 	grunt.loadNpmTasks( 'grunt-contrib-pug' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 
 	// Default task
 	grunt.registerTask( 'default', [ 'css', 'js' ] );
@@ -149,4 +163,6 @@ module.exports = function(grunt) {
 	// Serve presentation locally
 	grunt.registerTask( 'serve', [ 'pug', 'connect', 'watch' ] );
 
+	// All
+	grunt.registerTask( 'all', [ 'css-core', 'css-themes', 'css', 'js', 'pug', 'copy' ] );
 };
